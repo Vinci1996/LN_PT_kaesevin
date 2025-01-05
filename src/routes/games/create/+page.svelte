@@ -1,5 +1,5 @@
 <script>
-  /** @type {import('./$types').PageData} */    
+   
   let { data, form } = $props();
 
   // Funktion zum manuellen Schließen des Modals

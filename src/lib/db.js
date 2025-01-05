@@ -238,18 +238,16 @@ async function getGenres() {
   try {
     const collection = db.collection("genres");
 
-    // You can specify a query/filter here
-    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
     const query = {};
 
-    // Get all objects that match the query
+  
     genres = await collection.find(query).toArray();
     genres.forEach((genre) => {
-      genre._id = genre._id.toString(); // convert ObjectId to String
+      genre._id = genre._id.toString(); 
     });
   } catch (error) {
     console.log(error);
-    // TODO: errorhandling
+
   }
   return genres;
 }
