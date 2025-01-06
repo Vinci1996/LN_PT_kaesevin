@@ -3,17 +3,11 @@
   let { data, filterByLibrary = false } = $props();
   let searchTerm = $state('');
 
-  let filteredGames = $derived.by(() => {
-    if (filterByLibrary) {
-      let gamesFiltered = data.games.filter((game) => game.library);
-      return gamesFiltered.filter(game => 
-        game.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-    return data.games.filter(game => 
-      game.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  });
+  let games = $derived(data.games);
+
+  let filteredGames = $derived(games.filter(game => 
+    game.name.toLowerCase().includes(searchTerm.toLowerCase())
+  ));
 </script>
  
  <div class="hero">
