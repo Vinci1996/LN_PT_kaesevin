@@ -9,8 +9,11 @@
   });
 </script>
 
-<a href="/games" aria-label="Zurück zur Spieleübersicht">Back</a>
-<h1>Add a Game</h1>
+<div class="hero">
+  <a href="/games" class="back-button">Zurück</a>
+  <h1>Add a Game</h1>
+</div>
+
 
 <form method="POST" action="?/create">
 <div class="mb-3">
