@@ -50,15 +50,12 @@ async function getGame(id) {
 
 
 async function createGame(game) {
+  game.poster = "/images/placeholder.jpg"; // default poster
   game.library = false; // default value
 
     //Umwandlung Umwandlung der ID in Integer
     game.genre_id = parseInt(game.genre_id);
     game.publisher_id = parseInt(game.publisher_id);
-
-    if (!game.poster) {
-      game.poster = "/images/placeholder.jpg";
-    }
     
     console.log("Game vor dem Insert:", game);  // DEBUG
   try {
