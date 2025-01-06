@@ -1,27 +1,36 @@
 <script>
   import GameCard from "$lib/components/GameCard.svelte";
   let { data, filterByLibrary = false } = $props();
+  let searchTerm = $state('');
 
-  let games = $derived.by(() => {
+  let filteredGames = $derived.by(() => {
     if (filterByLibrary) {
       let gamesFiltered = data.games.filter((game) => game.library);
-      return gamesFiltered;
+      return gamesFiltered.filter(game => 
+        game.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
     }
-    return data.games;
+    return data.games.filter(game => 
+      game.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   });
 </script>
-
-<!-- Hero Section -->
-<div class="hero">
+ 
+ <div class="hero">
   <h1>Games</h1>
   <p class="subtitle">Entdecke unsere Spielesammlung</p>
-</div>
-
-
-
-<!-- Container mit row für das Grid-Layout -->
-<div class="row mt-3">
-  <!-- "Neues Spiel" Card -->
+ </div>
+ 
+ <div class="mb-3">
+  <input 
+    type="search" 
+    bind:value={searchTerm}
+    placeholder="Spiel suchen..." 
+    class="form-control"
+  />
+ </div>
+ 
+ <div class="row mt-3">
   <div class="col-sm-6 col-md-4 col-lg-3 mb-2 gx-2">
     <div class="card h-100">
       <div class="new-game-overlay">
@@ -38,43 +47,42 @@
       <a href="/games/create" class="stretched-link"></a>
     </div>
   </div>
-
-  <!-- Bestehende Game Cards im gleichen Grid -->
-  {#each games as game}
+ 
+  {#each filteredGames as game}
     <div class="col-sm-6 col-md-4 col-lg-3 mb-2 gx-2">
       <GameCard {game}></GameCard>
     </div>
   {/each}
-</div>
-
-<style>
-
+ </div>
+ 
+ <style>
   .card {
     cursor: pointer;
     transition: transform 0.2s;
     position: relative;
-    background: none; /* Entfernt den weißen Hintergrund */
-    border: none; /* Entfernt den Border */
+    background: none;
+    border: none;
   }
-
+ 
   .card:hover .new-game-overlay {
     opacity: 1;
   }
-
+ 
   .overlay-content {
     color: white;
     text-align: center;
   }
-
+ 
   .plus {
     font-size: 4rem;
     font-weight: bold;
   }
-
+ 
   .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
+  
   .new-game-overlay {
     position: absolute;
     top: 0;
@@ -89,5 +97,4 @@
     align-items: center;
     z-index: 1;
   }
-
-</style>
+ </style>
