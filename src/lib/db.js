@@ -50,7 +50,6 @@ async function getGame(id) {
 
 
 async function createGame(game) {
-  game.poster = "/images/placeholder.jpg"; // default poster
   game.library = false; // default value
 
     //Umwandlung Umwandlung der ID in Integer

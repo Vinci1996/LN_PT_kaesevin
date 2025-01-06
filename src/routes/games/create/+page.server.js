@@ -9,21 +9,34 @@ export const load = async () => {
   };
 };
 
-
-
-
 export const actions = {
   create: async ({ request }) => {
-    const data = await request.formData();
-    let game = {
-      name: data.get("name"),
-      date: data.get("date"),
-      duration: data.get("duration"),
-      minAge: data.get("minAge"),
-      publisher_id: data.get("publisher_id"),  // Angepasst an Form-Feldnamen
-      genre_id: data.get("genre_id"),
-    };          // Angepasst an Form-Feldnamen
-    await db.createGame(game);
-    return { success: true };
-  },
+    try {
+      const data = await request.formData();
+      const posterFile = data.get('poster');
+      
+      let posterPath = '/images/placeholder.jpg';
+
+      if (posterFile && posterFile.size > 0) {
+        const buffer = Buffer.from(await posterFile.arrayBuffer());
+        posterPath = `data:${posterFile.type};base64,${buffer.toString('base64')}`;
+      }
+
+      let game = {
+        name: data.get("name"),
+        date: data.get("date"),
+        duration: data.get("duration"),
+        minAge: data.get("minAge"),
+        publisher_id: data.get("publisher_id"),
+        genre_id: data.get("genre_id"),
+        poster: posterPath
+      };
+
+      await db.createGame(game);
+      return { success: true };
+    } catch (err) {
+      console.error('Error:', err);
+      return { success: false };
+    }
+  }
 };
