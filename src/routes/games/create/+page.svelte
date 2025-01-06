@@ -1,12 +1,20 @@
 <script>
   let { data, form } = $props();
-  let showPopup = $state(false);  
+  let showPopup = $state(false);
+  let selectedFile = null;  
 
   $effect(() => {
       if (form?.success) {
           showPopup = true;
       }
   });
+
+  function handleFileSelect(event) {
+    selectedFile = event.target.files[0];
+    if (selectedFile) {
+      imagePreview = URL.createObjectURL(selectedFile);
+    }
+  }
 </script>
 
 <div class="hero">
@@ -48,6 +56,18 @@
     {/each}
   </select>
 </div>
+<div class="mb-3">
+  <label for="poster" class="form-label">Spiel-Cover</label>
+  <input 
+    type="file" 
+    class="form-control" 
+    id="poster" 
+    name="poster" 
+    accept="image/*"
+    onchange={handleFileSelect}
+  />
+</div>
+
 <button type="submit" class="btn btn-primary">Add Game</button>
 </form>
 
