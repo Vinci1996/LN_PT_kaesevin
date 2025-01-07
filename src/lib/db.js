@@ -209,6 +209,36 @@ async function getPublisher(id) {
   return publisher;
 }
 
+////////////////////////////////////////////////////////
+////// CREATE PUBLISHER
+////////////////////////////////////////////////////////
+async function createPublisher(publisher) {
+  // Hole die höchste existierende ID
+  try {
+      const collection = db.collection("publishers");
+      const highestPublisher = await collection
+          .find()
+          .sort({ id: -1 })
+          .limit(1)
+          .toArray();
+      
+      // Setze die nächste ID
+      publisher.id = highestPublisher.length > 0 ? highestPublisher[0].id + 1 : 1;
+
+      if (!publisher.logo) {
+          publisher.logo = "/images/publisher_placeholder.jpg";
+      }
+
+      console.log("Publisher vor dem Insert:", publisher);  // DEBUG
+
+      const result = await collection.insertOne(publisher);
+      return result.insertedId.toString(); // convert ObjectId to String
+  } catch (error) {
+      console.log(error.message);
+  }
+  return null;
+}
+
 // Get publisher by game's publisher_id
 async function getPublisherByGame(game) {
   let publisher = null;
@@ -306,6 +336,7 @@ export default {
   getGamesByGenre,
   getPublishers,
   getPublisher,
+  createPublisher,
   getPublisherByGame,
   getGenres,
   getGenre,

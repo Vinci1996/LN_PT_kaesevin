@@ -38,7 +38,7 @@
         style="object-fit: cover;"
         alt="Add new game"
       />
-      <a href="/games/create" class="stretched-link"></a>
+      <a href="/games/create" class="stretched-link" aria-label="Neues Game hinzufügen"></a>
     </div>
   </div>
  
