@@ -3,9 +3,9 @@
 
     // Statistiken mit Animation
     $: stats = [
-        { number: `${data.games.length}+`, label: "Spiele" },
-        { number: `${data.publishers.length}+`, label: "Publisher" },
-        { number: `${data.genres.length}+`, label: "Genres" }
+        { number: `${data.games.length}`, label: "Spiele" },
+        { number: `${data.publishers.length}`, label: "Publisher" },
+        { number: `${data.genres.length}`, label: "Genres" }
     ];
 </script>
 
