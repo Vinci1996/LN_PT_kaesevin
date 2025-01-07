@@ -3,7 +3,6 @@
     export let data;
     let publisher = data.publisher;
     let games = data.games;
-    console.log("Games in Svelte component:", games); // Debug log
     $: games = data.games;
 </script>
 

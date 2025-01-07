@@ -3,14 +3,8 @@ import { error } from "@sveltejs/kit";
 
 export async function load({ params }) {
 
-  console.log("Übergebene ID aus params: ", params.publisher_id);
-
   const publisher = await db.getPublisher(params.publisher_id);
-  console.log("Gefundener Publisher:", publisher); //Debug
-
   const games = await db.getGamesByPublisher(params.publisher_id);
-  console.log("Games in load function:", games); //Debug
-
 
   if (!publisher) {
     throw error(404, "Publisher not found");

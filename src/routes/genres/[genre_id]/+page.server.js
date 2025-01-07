@@ -5,10 +5,8 @@ export async function load({params}) {
   console.log("Übergebene ID aus params: ", params.genre_id);
 
   const genre = await db.getGenre(params.genre_id);
-  console.log("Gefundene Genre:", genre); //Debug
 
   const games = await db.getGamesByGenre(params.genre_id);
-  console.log("Games in load function:", games); //Debug
 
   if (!genre) {
     throw error(404, "Genre not found");
