@@ -62,7 +62,6 @@
         padding: 2rem;
     }
 
-    /* Typewriter Animation */
     .typewriter {
         color: white;
         font-size: 3.5rem;
@@ -73,7 +72,6 @@
         animation: typing 3.5s steps(40, end);
     }
 
-    /* Fade-in Animation */
     .fade-in {
         color: #ddd;
         font-size: 1.5rem;
@@ -82,7 +80,6 @@
         animation-delay: 1s;
     }
 
-    /* Stats Section */
     .stats-section {
         padding: 4rem 0;
         background: #1a1a1a;
