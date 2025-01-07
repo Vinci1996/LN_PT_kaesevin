@@ -6,7 +6,7 @@
         { number: data.publishers.length, label: "Publisher" }
     ];
 
-    let team = [
+    const team = [
         {
             name: "Max Mustermann",
             role: "CEO & Gründer",
