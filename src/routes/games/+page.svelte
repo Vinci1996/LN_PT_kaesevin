@@ -1,6 +1,6 @@
 <script>
   import GameCard from "$lib/components/GameCard.svelte";
-  let { data, filterByLibrary = false } = $props();
+  let { data} = $props();
   let searchTerm = $state('');
 
   let games = $derived(data.games);

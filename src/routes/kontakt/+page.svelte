@@ -1,7 +1,5 @@
 <script>
-    import { onMount } from 'svelte';
     import { createEventDispatcher } from 'svelte';
-
     let name = '';
     let email = '';
     let message = '';

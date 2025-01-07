@@ -1,7 +1,6 @@
 <script>
     import GameCard from "$lib/components/GameCard.svelte";
     export let data;
-    let games = data.games;
     $: games = data.games;
   </script>
   

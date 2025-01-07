@@ -11,7 +11,6 @@
     <h1>{genre.name}</h1>
 </div>
 
-<h1>{genre.name}</h1>
 
 <!-- Games Sektion mit GameCard -->
 <div class="games-section mt-4">
