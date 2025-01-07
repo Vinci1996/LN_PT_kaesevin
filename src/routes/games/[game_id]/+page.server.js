@@ -14,10 +14,6 @@ export async function load({ params }) {
     game,
     publisher,
     genre,
-    
-    //game: await db.getGame(params.game_id),
-    //publisher: await db.getPublisher((await db.getGame(params.game_id)).publisher_id),
-    //genre: await db.getGenre((await db.getGame(params.game_id)).genre_id)
   };
 }
 
