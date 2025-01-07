@@ -188,14 +188,3 @@ body {
   display: flex;
   gap: 1rem;
 }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .stats-container {
-      grid-template-columns: 1fr;
-  }
-
-  .section-title {
-      font-size: 2rem;
-  }
-}

@@ -129,17 +129,4 @@
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .stats-grid {
-            grid-template-columns: 1fr;
-        }
-        .typewriter {
-            font-size: 2.5rem;
-        }
-        .fade-in {
-            font-size: 1.2rem;
-        }
-    }
 </style>
