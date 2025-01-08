@@ -32,7 +32,7 @@
             >
               <!-- Name -->
               <div class="mb-3">
-                <label for="name" class="form-label">Name*</label>
+                <label for="name" class="form-label">Name</label>
                 <input
                   type="text"
                   class="form-control"
@@ -44,7 +44,7 @@
   
               <!-- Country -->
               <div class="mb-3">
-                <label for="country" class="form-label">Land*</label>
+                <label for="country" class="form-label">Land</label>
                 <input
                   type="text"
                   class="form-control"
