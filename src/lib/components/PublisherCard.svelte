@@ -2,8 +2,7 @@
     // Empfangen der Publisher-Daten als Prop
     export let publisher;
 
-    // Fallback Logo falls keines gesetzt ist
-    const defaultLogo = "/images/placeholder_logo.png";
+
 </script>
 
 <div class="publisher-card">
@@ -12,7 +11,7 @@
         <div class="publisher-banner">
             <div class="logo-container">
                 <img 
-                    src={publisher.logo || defaultLogo} 
+                    src={publisher.logo} 
                     alt={`${publisher.name} Logo`}
                     class="publisher-logo"
                 />
